@@ -8,6 +8,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     line-height: normal;
+
     --cor-fundo: #e9e9e9;
     --cor-secundaria: #999ca0;
     --cor-texto: #303030;
@@ -16,6 +17,7 @@
 h2 {
     padding: 10px;
 }
+
 body {
     color: var(--cor-texto);
 }
