@@ -1,61 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/javascript.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aluno Online</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/praticas/aluno-online-vanilla/src/style.css" />
   </head>
+
   <body>
-    <aside>
-      <h2>🎓 Aluno Online</h2>
+    <aside class="menu-lateral">
+      <header class="marca">
+        <img src="/praticas/aluno-online-vanilla/public/learn.svg" alt="Logo Aluno Online" class="logo" />
+        <span class="nome-sistema">Aluno Online</span>
+      </header>
       <nav>
         <ul>
-          <li>Dashboard</li>
-          <li>Notas</li>
-          <li>Faltas</li>
-          <li>Boletos</li>
-          <li>Requerimentos</li>
-          <li>Sair</li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Notas</a></li>
+          <li><a href="#">Faltas</a></li>
+          <li><a href="#">Boletos</a></li>
+          <li><a href="#">Requerimentos</a></li>
+          <li><a href="#">Sair</a></li>
         </ul>
       </nav>
     </aside>
-      <header>
-        <h1>Olá, Aluno!</h1>
-        <img src="./avatar.svg" alt="Avatar do Aluno" />
+
+    <main class="area-principal">
+      
+      <header class="barra-superior">
+        <hgroup class="saudacao">
+          <h1>Olá, Aluno!</h1>
+          <p class="boas-vindas">Bem-vindo ao portal do aluno</p>
+        </hgroup>
+        <img src="/praticas/aluno-online-vanilla/public/avatar.svg" alt="Avatar do usuário" class="avatar" />
       </header>
-      <main>
-        <section>
-          <h2>Bem-vindo ao portal do aluno</h2>
 
-          <article>
-            <h3>Mural de Avisos</h3>
-            <p>Inscrição para o projeto de extensão</p>
-            <p>Eleição para representante da turma</p>
-          </article>
+      <section class="grade-cartoes">
+        <article class="cartao">
+          <h2>Mural de Avisos</h2>
+          <ul>
+            <li>Inscrição para o projeto de extensão</li>
+            <li>Eleição para representante de turma</li>
+          </ul>
+        </article>
 
-          <article>
-            <h3>Calendário Acadêmico</h3>
-            <p>23/02 - Início do período letivo 2026-1</p>
-            <p>25/04 - Prazo final para aplicação da P1</p>
-            <p>23/06 - Prazo final para aplicação da P2</p>
-            <p>04/07 - Fim do período letivo 2026-1</p>
-          </article>
+        <article class="cartao">
+          <h2>Calendário Acadêmico</h2>
+          <ul>
+            <li>23/02 - Início do período letivo 2026-1</li>
+            <li>25/04 - Prazo final para aplicação da P1</li>
+            <li>23/06 - Prazo final para aplicação da P2</li>
+            <li>04/07 - Fim do período letivo 2026-1</li>
+          </ul>
+        </article>
 
-          <article>
-            <h3>Minhas Disciplinas</h3>
-            <p>Manutenção de Software e DevOps</p>
-            <p>Construção de Frontend</p>
-            <p>Business Intelligence e Data Warehousing</p>
-            <p>Projeto de Extensão na Educação Superior</p>
-            <p>Governança de TI</p>
-            <p>Direitos Humanos e Ambientais</p>
-          </article>
-        </section>
-      </main>
-  
-
-    <script type="module" src="/src/main.js"></script>
+        <article class="cartao">
+          <h2>Minhas Disciplinas</h2>
+          <ul>
+            <li>BI e Data Warehousing</li>
+            <li>Construção de Frontend</li>
+            <li>Documentação de Software Dev S</li>
+            <li>Fundamentos de Computação em Nuvem</li>
+          </ul>
+        </article>
+      </section>
+      
+    </main>
   </body>
 </html>
