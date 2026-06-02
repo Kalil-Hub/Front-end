@@ -1,11 +1,16 @@
 import { useState } from "react";
 import FormLogin from "../Components/FormLogin";
+import { useAuth } from "../contexts/AuthContext";
 
-export default function Login({ navegaPara }) {
+// Removemos a prop { navegaPara }
+export default function Login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [emailErro, setEmailErro] = useState("");
     const [senhaErro, setSenhaErro] = useState("");
+
+    // Trazendo a função login do contexto
+    const { login } = useAuth();
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
@@ -33,9 +38,10 @@ export default function Login({ navegaPara }) {
         }
 
         if (formularioValido) {
-            if (navegaPara) {
-                navegaPara(1); 
-            }
+            login({
+                nome: "José Lucas",
+                email: email
+            }); 
         }
     };
 
