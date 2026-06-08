@@ -1,10 +1,12 @@
 import Header from '../components/Header';
 import TextoDescritivo from '../components/TextoDescritivo';
 import CardLista from '../components/CardLista';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Dashboard() {
   
-  
+  const { usuario } = useAuth();
+
   const dadosAvisos = [
     "Inscrição para o projeto de extensão",
     "Eleição para representante de turma"
@@ -27,7 +29,7 @@ export default function Dashboard() {
     <div className="flex flex-col md:flex-row min-h-screen bg-[#FFFFFF] font-sans">
             
       <div className="flex flex-col flex-1 p-6 md:p-10">
-        <Header titulo="Olá, Aluno!" />
+        <Header titulo={`Olá, ${usuario?.nome}!`} />
         
         <main>
           <TextoDescritivo texto="Bem-vindo ao portal do aluno" />
