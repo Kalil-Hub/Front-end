@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import Header from '../Components/Header';
+import { criarRequerimento } from '../services/requerimentoService';
 
 export default function RequerimentoForm() {
   const dataHoje = new Date().toLocaleDateString('en-CA'); 
@@ -13,13 +14,21 @@ export default function RequerimentoForm() {
   
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log("Novo Requerimento Registrado:", data);
-    reset(); 
-    alert("Requerimento salvo com sucesso!");
-    navigate("/requerimentos"); 
+  const onSubmit = async (data) => {
+    try {
+      const dadosComSituacao = { ...data, situacao: "Em análise" };
+      
+      await criarRequerimento(dadosComSituacao);
+      console.log("Novo Requerimento Registrado na API:", dadosComSituacao);
+      
+      reset(); 
+      alert("Requerimento salvo com sucesso!");
+      navigate("/requerimentos"); 
+    } catch (error) {
+      console.error("Erro ao salvar:", error);
+      alert("Erro ao salvar o requerimento.");
+    }
   };
-
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-[#FFFFFF] font-sans">
       <div className="flex flex-col flex-1 p-6 md:p-10">
