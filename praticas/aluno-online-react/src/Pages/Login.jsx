@@ -10,7 +10,7 @@ export default function Login() {
 
     const { login } = useAuth();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault(); 
         
         let formularioValido = true;
@@ -35,11 +35,16 @@ export default function Login() {
             setSenhaErro("");
         }
 
-        if (formularioValido) {
-            login({
-                email: email,
-                senha: senha
-            }); 
+        try {
+                // Aguarda a resposta do contexto
+                await login({
+                    email: email,
+                    senha: senha
+                });
+            } catch {
+                // Caso caia no throw new Error('Credenciais inválidas') do authService
+                setSenhaErro("E-mail ou senha incorretos.");
+            }
         }
     };
 
@@ -67,4 +72,3 @@ export default function Login() {
             </footer>
         </div>
     );
-}
