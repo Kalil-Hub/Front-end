@@ -27,6 +27,8 @@ export const listarRequerimentos = async () => {
 };
 
 export const criarRequerimento = async (dados) => {
+    const token = obterConfiguracaoComToken();
+
     const response = await fetch(BASE_URL, {
         method: 'POST',
         headers: {
@@ -35,6 +37,7 @@ export const criarRequerimento = async (dados) => {
         },
         body: JSON.stringify(dados)
     });
+
     if (!response.ok) throw new Error('Erro ao salvar os dados');
     return await response.json();
 };
