@@ -35,7 +35,8 @@ export default function Login() {
             setSenhaErro("");
         }
 
-        try {
+        if (formularioValido) {
+            try {
                 // Aguarda a resposta do contexto
                 await login({
                     email: email,
@@ -47,11 +48,10 @@ export default function Login() {
             }
         }
     };
-
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-white font-sans">
-                    <div className="bg-white p-8 rounded-lg border-1 border-[#d7d7d7] w-full max-w-[460px]">
-                    <div className="flex flex-col items-center mb-8">
+            <div className="bg-white p-8 rounded-lg border-1 border-[#d7d7d7] w-full max-w-[460px]">
+                <div className="flex flex-col items-center mb-8">
                     <img src="/learn.svg" alt="Logo Aluno Online" className="w-30 h-30 mb-4"/>
                     <h1 className="font-bold text-4xl text-gray-900">Aluno Online</h1>
                 </div>
@@ -72,3 +72,4 @@ export default function Login() {
             </footer>
         </div>
     );
+}
